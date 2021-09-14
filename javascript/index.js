@@ -13,7 +13,7 @@ function display() {
   let i = 0;
   books.filter((book)=>{
   let title = `Title: ${book.title}`;
-  let author = `Author: ${book.title}`;
+  let author = `Author: ${book.author}`;
   
   let div = createElement('div', 'book-container') 
   let titleTag = createElement('p', 'title');
@@ -21,49 +21,40 @@ function display() {
   let authorTag = createElement('p', 'author');
   authorTag.innerText = author;
   let removeBtn = createElement('button', 'remove-btn');
-  let dataSet = removeBtn.setAttribute('data-name', `${i}`);    
   removeBtn.innerText = 'Remove';
+  let dataSet = removeBtn.setAttribute('data-name', `${i}`);    
   div.append(titleTag, authorTag, removeBtn);
+  removeBtn.onclick = remove;
   bookContainer.append(div);
   i++;
+})
   // console.log(div)
-
-  })
-  // console.log(filter);
 }
-display();
 
-function add(e) {
+function add() {
   let title = document.querySelector('#title').value;
   let author =  document.querySelector('#author').value;
   let object = {title, author};
+  // console.log(object);
   books.push(object);
   display();
-  clickRemove();
+  // console.log(object)
 }
 
 function remove(event) {
-  console.log('a')
   let eIndex = event.target.dataset.name;
   parseInt('index', 10);
   books.filter((element, index) =>{
     if(eIndex == index) {
-      console.log(index);
       books = books.splice(index, index);
-      console.log(books);
       display();
     }
   })
-}
- 
+} 
 
-function clickAdd () {
-  let button = document.querySelector('.add');
+function queryAddBtn () {
+  let button = document.querySelector('button');
   button.addEventListener('click', add);
 }
-clickAdd();
+queryAddBtn();
 
-function clickRemove() {
-  let button = document.querySelector('.remove-btn');
-  button.addEventListener('click', remove);    
-}
