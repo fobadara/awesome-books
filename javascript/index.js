@@ -52,3 +52,19 @@ function addBook () {
     document.getElementById("author").value = ""
 } 
 
+ function removeBook () {
+    // console.log(this.parentElement.firstChild.innerText);
+    storedBooks = JSON.parse(localStorage.getItem("books"))
+    for (let index = 0; index < storedBooks.length; index++) {
+        if ((this.parentElement.children[0].innerText === storedBooks[index].title) && (this.parentElement.children[1].innerText === storedBooks[index].author)) {
+            // console.log(storedBooks[index].author);
+            storedBooks.splice(index, 1)  
+            localStorage.setItem("books", JSON.stringify(storedBooks))
+            storedBooks = JSON.parse(localStorage.getItem("books"))
+            window.location.reload()
+            console.log(storedBooks);
+        }
+        
+    }
+
+}
