@@ -36,3 +36,19 @@ if (storedBooks !== null ) {
 
 
 
+const btn = document.getElementById("btn").addEventListener('click', addBook);
+
+function addBook () {
+    const title = document.getElementById("title").value
+    const author = document.getElementById("author").value
+    const book = {title, author}
+    storedBooks.push(book)
+    books.push(book)
+    localStorage.setItem("books", JSON.stringify(storedBooks))
+    storedBooks = JSON.parse(localStorage.getItem("books"))
+    console.log(storedBooks);
+    window.location.reload()
+    document.getElementById("title").value = ""
+    document.getElementById("author").value = ""
+} 
+
