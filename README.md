@@ -1,19 +1,20 @@
 ## My Portfolio Site
 
-This is a portfolio site inspired by figma
+This is an e-library showing
+our understanding of CRUD.
 
-![screenshot](images/shot1.png)
+<!-- ![screenshot](images/shot1.png)
 ![screenshot](images/shot2.png)
 ![screenshot](images/shot3.png)
-![screenshot](images/shot4.png)
+![screenshot](images/shot4.png) -->
 
-# <div align="center"><a href="https://fobadara.github.io/my-portfolio-site-2/" text="bold">Live Demo</a></div>
+# <div align="center"><a href="https://fobadara.github.io/awesome-books/" text="bold">Live Demo</a></div>
 
 # Description
 
-![screenshot](images/portfolio2.gif)
+<!-- ![screenshot](images/portfolio2.gif) -->
 
-> A site showing some of my best works structured beautifully. This site is fully responsive and compatible to all screen sizes and all device. A combination of flexbox and grid are used to bring this site to life. It is divided into a navigation section, an homepage section, a work section, an about section and a footer section.
+> This is a site in which you can add, remove and display books. It also saves the details on local storage for use at any point in time.
 
 # Built With :hammer:
 
@@ -21,15 +22,23 @@ This is a portfolio site inspired by figma
 
 ● CSS
 
+● Javascript
+
+# Technologies used:
+
 ● Linters
+
+● Github
+
+● Vscode
 
 # Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
-⬜ clone the app by running this command `git clone https://github.com/fobadara/my-portfolio-site-2.git`
+⬜ clone the app by running this command `git clone https://github.com/fobadara/awesomebooks.git`
 
-⬜ Run this command `cd my-portfolio-site-2`
+⬜ Run this command `cd awesome-books`
 
 ⬜ Open in browser
 
@@ -53,9 +62,13 @@ You can run tests by following these steps:
 
 # Authors
 
+👤 Kingsley
+
+Github: [github.com/kingstalux](github.com/kingstalux)
+
 👤 Abdulfatai Badara
 
-GitHub: github.com/fobadara
+GitHub: [github.com/fobadara](github.com/fobadara)
 
 Twitter: fob90s@twitter.com
 
@@ -72,8 +85,6 @@ Give a ⭐️ if you like this project!
 # Acknowledgments
 
 Hat tip to anyone whose code was used
-
-Lots of appreciations to my wife, Habeebah who keeps supporting me
 
 # 📝 License
 
