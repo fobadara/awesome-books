@@ -3,7 +3,6 @@ localStorage.setItem('books', JSON.stringify(books));
 let storedBooks = JSON.parse(localStorage.getItem('books'));
 
 function removeBook() {
-  storedBooks = JSON.parse(localStorage.getItem('books'));
   for (let index = 0; index < storedBooks.length; index += 1) {
     if ((this.parentElement.children[0].innerText === storedBooks[index].title)
       && (this.parentElement.children[1].innerText === storedBooks[index].author)) {
@@ -50,8 +49,13 @@ function addBook() {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
   const book = { title, author };
+  storedBooks = storedBooks.filter((book)=> {
+    return book.title !== title || book.author !== author;
+  })
   storedBooks.push(book);
   books.push(book);
+  console.log(title);
+  console.log(storedBooks);
   localStorage.setItem('books', JSON.stringify(storedBooks));
   storedBooks = JSON.parse(localStorage.getItem('books'));
   window.location.reload();
@@ -59,9 +63,3 @@ function addBook() {
   document.getElementById('author').value = '';
 }
 document.getElementById('btn').addEventListener('click', addBook);
-           console.log(storedBooks);
-        }
-        
-    }
-
-}
