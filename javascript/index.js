@@ -59,3 +59,9 @@ function addBook() {
   document.getElementById('author').value = '';
 }
 document.getElementById('btn').addEventListener('click', addBook);
+           console.log(storedBooks);
+        }
+        
+    }
+
+}
