@@ -41,15 +41,15 @@ function RenderBooks() {
   }
 }
 
-const render = new RenderBooks();
-
-// if (library.storedBooks !== null) {
-//   renderBooks();
-// } else {
-//   library.storedBooks = [];
-//   books = [];
-//   renderBooks();
-// }
+function CheckRender() {
+  if (library.storedBooks !== null) {
+    const render = new RenderBooks();
+  } else {
+    library.storedBooks = [];
+    books = [];
+    const render = new RenderBooks();
+  }  
+}
 
 // function addBook() {
 //   const title = document.getElementById('title').value;
