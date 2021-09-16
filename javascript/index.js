@@ -1,65 +1,73 @@
-let books = JSON.parse(localStorage.getItem('books'));
-localStorage.setItem('books', JSON.stringify(books));
-let storedBooks = JSON.parse(localStorage.getItem('books'));
+function Library() {
+  this.books = JSON.parse(localStorage.getItem('books'));
+  this.storage = localStorage.setItem('books', JSON.stringify(this.books));
+  this.storedBooks = JSON.parse(localStorage.getItem('books'));
+}
+const library = new Library();
 
-function removeBook() {
-  storedBooks = JSON.parse(localStorage.getItem('books'));
-  for (let index = 0; index < storedBooks.length; index += 1) {
-    if ((this.parentElement.children[0].innerText === storedBooks[index].title)
-      && this.parentElement.children[1].innerText === storedBooks[index].author)) {
-      storedBooks.splice(index, 1);
-      localStorage.setItem('books', JSON.stringify(storedBooks));
-      storedBooks = JSON.parse(localStorage.getItem('books'));
+function RemoveBook() {
+  for (let index = 0; index < library.storedBooks.length; index += 1) {
+    if ((this.parentElement.children[0].innerText === library.storedBooks[index].title)
+      && (this.parentElement.children[1].innerText === library.storedBooks[index].author)) {
+      library.storedBooks.splice(index, 1);
+      localStorage.setItem('books', JSON.stringify(library.storedBooks));
+      library.storedBooks = JSON.parse(localStorage.getItem('books'));
       window.location.reload();
     }
   }
 }
+const remove = new RemoveBook();
 
-function renderBooks() {
-  for (let i = 0; i < storedBooks.length; i += 1) {
-    const p = storedBooks[i];
-    const div = document.createElement('div');
-    div.className = i;
-    const para1 = document.createElement('p');
-    para1.innerHTML = p.title;
+function RenderBooks() {
+  for (let i = 0; i < library.storedBooks.length; i += 1) {
+    this.p = library.storedBooks[i];
+    this.div = document.createElement('div');
+    this.div.className = i;
+    this.para1 = document.createElement('p');
+    para1.innerHTML = this.p.title;
     div.appendChild(para1);
-    const para2 = document.createElement('p');
-    para2.innerHTML = p.author;
+    this.para2 = document.createElement('p');
+    para2.innerHTML = this.p.author;
     div.appendChild(para2);
-    const container = document.getElementById('container');
-    container.appendChild(div);
-    const removeBtn = document.createElement('button');
-    removeBtn.id = i;
-    removeBtn.innerText = 'Remove';
-    div.appendChild(removeBtn);
-    removeBtn.addEventListener('click', removeBook);
-    const hr = document.createElement('hr');
-    div.appendChild(hr);
+    this.container = document.getElementById('container');
+    this.container.appendChild(div);
+    this.removeBtn = document.createElement('button');
+    this.removeBtn.id = i;
+    this.removeBtn.innerText = 'Remove';
+    this.div.appendChild(removeBtn);
+    this.removeBtn.addEventListener('click', this.removeBook);
+    this.hr = document.createElement('hr');
+    this.div.appendChild(hr);
   }
 }
 
-if (storedBooks !== null) {
-  renderBooks();
-} else {
-  storedBooks = [];
-  books = [];
-  renderBooks();
-}
+const render = new RenderBooks();
 
-function addBook() {
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  const book = { title, author };
-  storedBooks.push(book);
-  books.push(book);
-  localStorage.setItem('books', JSON.stringify(storedBooks));
-  storedBooks = JSON.parse(localStorage.getItem('books'));
-  window.location.reload();
-  document.getElementById('title').value = '';
-  document.getElementById('author').value = '';
-}
-document.getElementById('btn').addEventListener('click', addBook);
-           console.log(storedBooks);
-        }
-        
-   
+// if (library.storedBooks !== null) {
+//   renderBooks();
+// } else {
+//   library.storedBooks = [];
+//   books = [];
+//   renderBooks();
+// }
+
+// function addBook() {
+//   const title = document.getElementById('title').value;
+//   const author = document.getElementById('author').value;
+//   const book = { title, author };
+//   library.storedBooks = library.storedBooks.filter((book)=> {
+//     return book.title !== title || book.author !== author;
+//   })
+//   library.storedBooks.push(book);
+//   books.push(book);
+//   console.log(title);
+//   console.log(library.storedBooks);
+//   localStorage.setItem('books', JSON.stringify(library.storedBooks));
+//   library.storedBooks = JSON.parse(localStorage.getItem('books'));
+//   window.location.reload();
+//   document.getElementById('title').value = '';
+//   document.getElementById('author').value = '';
+// }
+// document.getElementById('btn').addEventListener('click', addBook);
+
+// }
