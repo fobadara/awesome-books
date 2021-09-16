@@ -7,8 +7,8 @@ const library = new Library();
 
 function RemoveBook() {
   for (let index = 0; index < library.storedBooks.length; index += 1) {
-    if ((this.parentElement.children[0].innerText === library.storedBooks[index].title)
-      && (this.parentElement.children[1].innerText === library.storedBooks[index].author)) {
+    if ((library.storedBooks[i].parentElement.children[0].innerText === library.storedBooks[index].title)
+      && (library.storedBooks[i].parentElement.children[1].innerText === library.storedBooks[index].author)) {
       library.storedBooks.splice(index, 1);
       localStorage.setItem('books', JSON.stringify(library.storedBooks));
       library.storedBooks = JSON.parse(localStorage.getItem('books'));
