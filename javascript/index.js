@@ -6,7 +6,7 @@ function removeBook() {
   storedBooks = JSON.parse(localStorage.getItem('books'));
   for (let index = 0; index < storedBooks.length; index += 1) {
     if ((this.parentElement.children[0].innerText === storedBooks[index].title)
-      && (this.parentElement.children[1].innerText === storedBooks[index].author)) {
+      && this.parentElement.children[1].innerText === storedBooks[index].author)) {
       storedBooks.splice(index, 1);
       localStorage.setItem('books', JSON.stringify(storedBooks));
       storedBooks = JSON.parse(localStorage.getItem('books'));
@@ -59,3 +59,7 @@ function addBook() {
   document.getElementById('author').value = '';
 }
 document.getElementById('btn').addEventListener('click', addBook);
+           console.log(storedBooks);
+        }
+        
+   
