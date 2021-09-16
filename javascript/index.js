@@ -49,13 +49,9 @@ function addBook() {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
   const book = { title, author };
-  storedBooks = storedBooks.filter((book)=> {
-    return book.title !== title || book.author !== author;
-  })
+  storedBooks = storedBooks.filter((book) => book.title !== title || book.author !== author);
   storedBooks.push(book);
   books.push(book);
-  console.log(title);
-  console.log(storedBooks);
   localStorage.setItem('books', JSON.stringify(storedBooks));
   storedBooks = JSON.parse(localStorage.getItem('books'));
   window.location.reload();
