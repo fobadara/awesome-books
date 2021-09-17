@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/styles.css">
   <title>Awesome Books</title>
 </head>
@@ -14,16 +15,16 @@
     <h1>Awesome Books</h1>
   </header>
   <main>
-    <section class="main">
-      <section class="main-container"></section>
-      <section class="form-cont">
+    <div class="main">
+      <div class="main-container"></div>
+      <div class="form-cont">
         <form action="#" id="form">
-          <input type="text" placeholder="Title" id="title" required><br><br>
+          <input type="text" placeholder="Title" id="title" maxlength="50" required><br><br>
           <input type="text" placeholder="Author" id="author" required><br><br>
           <button type="button" id="btn">Add</button> <span class="error"></span>
         </form>
-      </section>
-    </section>
+      </div>
+    </div>
   </main>
   <script src="javascript/index.js"></script>
 </body>
