@@ -1,31 +1,23 @@
+let books = JSON.parse(localStorage.getItem('books'));
+localStorage.setItem('books', JSON.stringify(books));
+let storedBooks = JSON.parse(localStorage.getItem('books'));
+
 class Library {
-  constructor() {
-   
-  }
-
-  variables () {
-    this.books = JSON.parse(localStorage.getItem('books'));
-    console.log(this.books)
-    this.storage = localStorage.setItem('books', JSON.stringify(this.books));
-    this.storedBooks = JSON.parse(localStorage.getItem('books'));
-  }
-
   removeBook = (event) => {
-    for (let index = 0; index < this.storedBooks.length; index += 1) {
-      if ((event.target.parentElement.children[0].innerText === this.storedBooks[index].title)
-        && (event.target.parentElement.children[1].innerText === this.storedBooks[index].author)) {
-        this.storedBooks.splice(index, 1);
-        localStorage.setItem('books', JSON.stringify(this.storedBooks));
-        this.storedBooks = JSON.parse(localStorage.getItem('books'));
+    for (let index = 0; index < storedBooks.length; index += 1) {
+      if ((event.target.parentElement.children[0].innerText === storedBooks[index].title)
+        && (event.target.parentElement.children[1].innerText === storedBooks[index].author)) {
+        storedBooks.splice(index, 1);
+        localStorage.setItem('books', JSON.stringify(storedBooks));
+        storedBooks = JSON.parse(localStorage.getItem('books'));
         window.location.reload();
       }
     }
   }
 
   renderBooks() {
-    this.variables();
-    for (let i = 0; i < this.storedBooks.length; i += 1) {
-      this.p = this.storedBooks[i];
+    for (let i = 0; i < storedBooks.length; i += 1) {
+      this.p = storedBooks[i];
       this.div = document.createElement('div');
       this.div.className = i;
       this.para1 = document.createElement('p');
@@ -47,26 +39,24 @@ class Library {
   }
 
   checkRender() {
-    if (this.storedBooks !== null) {
+    if (storedBooks !== null) {
       this.renderBooks();
     } else {
-      this.storedBooks = [];
-      this.books = [];
+      storedBooks = [];
+      books = [];
       this.renderBooks();
     }
   }
 
-  addBook() {
+  addBook = () => {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const book = { title, author };
-    this.storedBooks = this.storedBooks.filter((book) => book.title !== title || book.author !== author);
-    this.storedBooks.push(book);
-    this.books.push(book);
-    console.log(title);
-    console.log(this.storedBooks);
-    localStorage.setItem('books', JSON.stringify(this.storedBooks));
-    this.storedBooks = JSON.parse(localStorage.getItem('books'));
+    storedBooks = storedBooks.filter((book) => book.title !== title || book.author !== author);
+    storedBooks.push(book);
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(storedBooks));
+    storedBooks = JSON.parse(localStorage.getItem('books'));
     window.location.reload();
   }
 
@@ -78,4 +68,3 @@ class Library {
 const library = new Library();
 library.addEvent();
 library.checkRender();
-library.variables();
