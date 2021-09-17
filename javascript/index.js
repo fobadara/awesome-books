@@ -57,6 +57,7 @@ class Library {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const book = { title, author };
+<<<<<<< HEAD
     this.error = document.querySelector('.error');
     if (!title || !author) {
       this.error.innerText = 'Empty field not allowed';
@@ -64,6 +65,12 @@ class Library {
     } else if (title.length > 20 || author.length > 20) {
       this.error.innerText = 'That\'s funny. But a name cannot be above twenty letters';
       this.error.style.cssText = 'color: red; margin-top: 0.5em';
+=======
+    if (!title || !author) {
+      this.error = document.querySelector('.error');
+      this.error.innerText = 'Empty field not allowed';
+      this.error.style.cssText = 'color: red; margin-top: 0.5em';
+>>>>>>> main
     } else {
       storedBooks = storedBooks.filter((book) => book.title !== title || book.author !== author);
       storedBooks.push(book);
