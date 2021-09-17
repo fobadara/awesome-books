@@ -52,12 +52,11 @@ class Library {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const book = { title, author };
-    if(!title || !author) {
+    if (!title || !author) {
       this.error = document.querySelector('.error');
       this.error.innerText = 'Empty field not allowed';
       this.error.style.cssText = 'color: red; margin-top: 0.5em';
-    }
-    else{
+    } else {
       storedBooks = storedBooks.filter((book) => book.title !== title || book.author !== author);
       storedBooks.push(book);
       books.push(book);
