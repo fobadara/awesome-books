@@ -74,13 +74,8 @@ class Library {
       books.push(book);
       localStorage.setItem('books', JSON.stringify(storedBooks));
       storedBooks = JSON.parse(localStorage.getItem('books'));
-      window.location.reload();
       // Make add new button work when you navigate to home from add new
-      this.add = document.querySelector('#btn');
-      this.add.addEventListener('click', () => {
-        window.location = '#list';
-        window.stop();
-      });
+      window.location.hash = '#list';
     }
   }
 
@@ -124,6 +119,7 @@ class LoadContent {
   windowEvent() {
     this.list = document.querySelectorAll('.list');
     this.list.forEach((element) => {
+      window.location.hash = '#list';
       element.classList.replace('hidden', 'display');
     });
 

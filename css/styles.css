@@ -81,6 +81,7 @@ header {
   max-height: 400px;
   overflow-y: auto;
   overflow-x: hidden;
+  margin-bottom: 5em;
 }
 
 .d-flex {
