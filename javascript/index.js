@@ -74,6 +74,7 @@ class Library {
       books.push(book);
       localStorage.setItem('books', JSON.stringify(storedBooks));
       storedBooks = JSON.parse(localStorage.getItem('books'));
+      window.location.reload();
       // Make add new button work when you navigate to home from add new
       window.location.hash = '#list';
     }
