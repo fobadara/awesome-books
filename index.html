@@ -11,21 +11,55 @@
 </head>
 
 <body>
+  <nav class="nav">
+    <div class="d-flex nav-child">
+      <div><a href="#list">Awesome Books</a></div>
+      <ul class="right-nav d-flex">
+        <li><a href="#list">List</a></li>
+        <li><a href="#new">Add New</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="date"></div>
+  </nav>
   <header>
-    <h1>Awesome Books</h1>
+    <h1>
+      <span class="list hidden">All Awesome Books</span>
+      <span class="new hidden">Add a New Book</span>
+      <span class="contact hidden">Contact Information</span>
+    </h1>
   </header>
   <main>
+    <!--Book List  -->
     <div class="main">
-      <div class="main-container"></div>
-      <div class="form-cont">
-        <form action="#" id="form">
+      <div class="main-container list hidden"></div>
+      <!-- Add Book Form -->
+      <div class="form-cont d-flex">
+        <form action="#" class="new hidden">
           <input type="text" placeholder="Title" id="title" maxlength="50" required><br><br>
           <input type="text" placeholder="Author" id="author" required><br><br>
-          <button type="button" id="btn">Add</button> <span class="error"></span>
+          <button type="button" id="btn">Add</button>
+          <div class="error"></div>
         </form>
       </div>
     </div>
+    <!-- Contact info -->
+    <div class="contact hidden contact-info">
+      <div>
+        <p>Do you have any questions or just want to say "Hello?"</p>
+        <p>You can reach out to us through:</p>
+        <ul>
+          <li>Our Email <a href="fob90s@gmail.com">fob90s@gmail.com</a></li>
+          <li>Our Phone Number: +2349066478370</li>
+          <li>Our address: Osun State Nigeria</li>
+        </ul>
+      </div>
+    </div>
   </main>
+  <footer>
+    <p>Copyright</p>
+  </footer>
+  <script src="javascript/luxon.js"></script>
   <script src="javascript/index.js"></script>
 </body>
 

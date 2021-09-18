@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+// eslint-disable-next-line max-classes-per-file
 let books = JSON.parse(localStorage.getItem('books'));
 localStorage.setItem('books', JSON.stringify(books));
 let storedBooks = JSON.parse(localStorage.getItem('books'));
@@ -21,7 +22,10 @@ class Library {
       this.fragment = new DocumentFragment();
       this.p = storedBooks[i];
       this.ul = document.createElement('ul');
+      this.ul.classList.add('d-flex');
       this.content = document.createElement('li');
+      this.content.classList.add('rows');
+      this.content.classList.add('d-flex');
       this.span = document.createElement('span');
       this.spanclass = this.span.classList.add('title-span');
       this.span.innerHTML = `${i + 1}. <span>"${this.p.title}" by "${this.p.author}"<span>`;
@@ -71,6 +75,8 @@ class Library {
       localStorage.setItem('books', JSON.stringify(storedBooks));
       storedBooks = JSON.parse(localStorage.getItem('books'));
       window.location.reload();
+      // Make add new button work when you navigate to home from add new
+      window.location.hash = '#list';
     }
   }
 
@@ -82,3 +88,46 @@ class Library {
 const library = new Library();
 library.addEvent();
 library.checkRender();
+
+class LoadContent {
+  // Load page content
+
+  loadPage() {
+    // eslint-disable-next-line no-restricted-globals
+    this.hash = location.hash;
+    this.display = document.querySelectorAll('.display');
+    if (this.display) {
+      this.display.forEach((element) => {
+        element.classList.replace('display', 'hidden');
+      });
+    }
+
+    // Display appropriate content
+    this.element = document.querySelectorAll(`.${this.hash.substr(1)}`);
+    for (let i = 0; i < this.element.length; i += 1) {
+      this.element[i].classList.replace('hidden', 'display');
+    }
+  }
+
+  displayTime() {
+    // eslint-disable-next-line no-undef
+    this.DateTime = luxon.DateTime.now();
+    this.date = document.querySelector('.date');
+    this.date.innerText = `Date/Time: ${this.DateTime}`;
+  }
+
+  // Listen for events
+  windowEvent() {
+    this.list = document.querySelectorAll('.list');
+    this.list.forEach((element) => {
+      window.location.hash = '#list';
+      element.classList.replace('hidden', 'display');
+    });
+
+    window.addEventListener('hashchange', this.loadPage);
+  }
+}
+
+const loadContent = new LoadContent();
+loadContent.windowEvent();
+loadContent.displayTime();
