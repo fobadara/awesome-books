@@ -1,18 +1,13 @@
-## My Portfolio Site
+## Awesome Books
 
 This is an e-library showing
 our understanding of CRUD.
-
-<!-- ![screenshot](images/shot1.png)
-![screenshot](images/shot2.png)
-![screenshot](images/shot3.png)
-![screenshot](images/shot4.png) -->
 
 # <div align="center"><a href="https://fobadara.github.io/awesome-books/" text="bold">Live Demo</a></div>
 
 # Description
 
-<!-- ![screenshot](images/portfolio2.gif) -->
+![screenshot](./images/awesome-books.gif)
 
 > This is a site in which you can add, remove and display books. It also saves the details on local storage for use at any point in time.
 
